@@ -1,0 +1,21 @@
+{
+  "data": [
+    {
+      "recordingId": "example-0001",
+      "recordingTitle": "Acme Robotics | gateway POC kickoff",
+      "recordingDate": "2026-10-14T16:00:00Z",
+      "summary": {
+        "markdown": "Acme Robotics kicked off a 4-week gateway POC. **Jane Doe** confirmed the cluster runs Kubernetes 1.3 and asked for per-team LLM budgets. Next check-in is next week."
+      },
+      "transcriptSegments": [
+        {"start": 2.1, "end": 6.0, "speaker": "Jane Doe", "text": "Thanks for making time. We want to start the gateway POC this week."},
+        {"start": 6.4, "end": 14.8, "speaker": "SPEAKER_01", "text": "Great. Before anything else, which Kubernetes version are the POC clusters on?"},
+        {"start": 15.2, "end": 22.9, "speaker": "Jane Doe", "text": "One thirty-three on the POC clusters. Production is still on one thirty-one, and Sam owns that upgrade."},
+        {"start": 23.5, "end": 33.0, "speaker": "Jane Doe", "text": "Jane asked me to raise budgets. We need a monthly LLM spend cap per team, not one global number."},
+        {"start": 33.4, "end": 41.7, "speaker": "SPEAKER_01", "text": "That works with per-key budgets. I will send a config that caps two teams separately by Friday."},
+        {"start": 42.0, "end": 49.5, "speaker": "SPEAKER_02", "text": "This is Sam. Production upgrade to one thirty-three is planned for November, not before."},
+        {"start": 50.0, "end": 55.2, "speaker": "Jane Doe", "text": "So POC success criteria are budgets per team and tool-level access control. Four weeks."}
+      ]
+    }
+  ]
+}

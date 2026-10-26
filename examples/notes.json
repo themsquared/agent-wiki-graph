@@ -1,0 +1,11 @@
+{
+  "example-0001": {
+    "slug": "2026-10-14-pocket-acme-robotics-kickoff",
+    "start": "2026-10-14T16:00:00Z",
+    "event": "Acme Robotics POC kickoff (fictional example)",
+    "warnings": [
+      "The second 'Jane Doe' segment refers to Jane in the third person ('Jane asked me to raise budgets'). That label is on another speaker. Do not attribute the budget request to Jane.",
+      "The Pocket summary says 'Kubernetes 1.3'. The transcript says 1.33 on POC clusters and 1.31 in production. The summary dropped a digit."
+    ]
+  }
+}
