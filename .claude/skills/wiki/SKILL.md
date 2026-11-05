@@ -8,6 +8,9 @@ description: Maintain the account wiki in this repo. Ingest transcripts and docu
 The schema contract is `CLAUDE.md` at the repo root. Read it before writing anything, then read
 `accounts/<slug>/CLAUDE.md` for that account's deltas. Never write a page without having read both.
 
+MCP-connected agents write only to `_agents/inbox/`. This skill is the human-side ingest path
+and may edit pages. Do not treat the MCP inbox as a substitute for ingest.
+
 | Subcommand | Args | Does |
 |---|---|---|
 | `ingest <account\|--tech> [source]` | slug or flag | Save a raw source, then fan it out into pages |
