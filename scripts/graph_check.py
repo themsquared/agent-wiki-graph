@@ -5,15 +5,16 @@ Usage: graph_check.py <vault_root> [--json]
 
 Resolves [[target]] and [[target|display]] the way Obsidian does: a bare
 slug matches any file with that basename, a path matches from the vault root.
-_raw/ files count as link targets but are never reported as orphans, because
-raw sources are cited, not navigated to.
+_raw/ files and `_agents/` inbox notes count as link targets but are never
+reported as orphans. Raw sources are cited, not navigated to. Inbox notes are
+staging, not pages.
 """
 import json, os, re, sys
 from collections import Counter, defaultdict
 
 root = os.path.abspath(sys.argv[1])
 LINK = re.compile(r"\[\[([^\]|#\\]+)\\?(?:#[^\]|]*)?\\?(?:\|[^\]]*)?\]\]")  # \| is a pipe escaped inside a table
-SKIP = {".git", ".obsidian", ".trash", "node_modules", ".claude", "templates", "_vault-template"}  # skeletons hold placeholder links
+SKIP = {".git", ".obsidian", ".trash", "node_modules", ".claude", "templates", "_vault-template", "mcp"}  # skeletons and the MCP package are not wiki pages
 
 files = {}  # relpath without .md -> abs path
 for d, dirs, fs in os.walk(root):
@@ -61,7 +62,10 @@ for rel, p in files.items():
 def raw(rel):
     return "/_raw/" in f"/{rel}/"
 
-orphans = sorted(r for r in files if inbound[r] == 0 and not raw(r)
+def staging(rel):
+    return rel.startswith("_agents/") or raw(rel)
+
+orphans = sorted(r for r in files if inbound[r] == 0 and not staging(r)
                  and os.path.basename(r) not in {"index", "CLAUDE", "log", "README"})
 report = {
     "pages": len(files),

@@ -44,6 +44,8 @@ sources/_raw/          IMMUTABLE raw transcripts for internal, non-account sourc
 templates/             skeletons for the technical layer
 _vault-template/       skeleton for a new account vault
 _cross-account/        roster, digests, rollups
+_agents/inbox/         MCP create-only drop. Agents do not edit wiki pages.
+mcp/                   schema-enforcing MCP server (not wiki pages)
 ```
 
 Filenames are lowercase kebab-case slugs. Meetings and raw sources are date-prefixed.
@@ -148,10 +150,31 @@ The engineer ships commands and claims to customers. A wrong version number cost
 
 ---
 
+## Agent write path (MCP)
+
+Agents connected through the schema MCP server (`mcp/`) do not edit wiki pages. They create
+one new file under `_agents/inbox/` and stop. See [[_agents/README|agent inbox]].
+
+Required frontmatter: `agent`, `date`, `about`, `area`, `source`, `suggested_home`.
+Filename: `YYYY-MM-DD-<agent-slug>-<topic>.md`. Existing inbox notes are never overwritten.
+`_raw/` is immutable. Deletes do not exist.
+
+A later human pass (or `/wiki ingest`) places the fact on the right page.
+
+The MCP server hard-refuses paths and topics on the deny list below.
+
 ## Privacy boundary
 
-Decide which sources are out of bounds (for example, personal email) and write the rule here.
-Agents follow this file, so a boundary that is not written here does not exist.
+Out of bounds for agents (read and write). The MCP server hard-refuses these categories.
+They are generic. This repo has no real private material.
+
+- Credentials, passwords, API keys, and secrets
+- Access tokens and session tokens
+- Custody and family-legal matters
+- HR personnel matters (personnel files, performance reviews, disciplinary action)
+
+Personal email stays out unless the engineer adds a source here. A boundary that is not
+written here does not exist.
 
 No secrets, license keys, or API keys in the vault, ever.
 

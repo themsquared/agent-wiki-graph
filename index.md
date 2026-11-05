@@ -2,12 +2,13 @@
 type: index
 title: Index
 tags: [index]
-updated: 2026-10-20
+updated: 2026-11-05
 ---
 
 # Account wiki
 
 Schema in [[CLAUDE|the contract]]. Recent decisions in [[log]]. Coverage in [[roster]].
+MCP-connected agents write to [[_agents/README|the inbox]], not to these pages.
 
 ## Accounts
 
