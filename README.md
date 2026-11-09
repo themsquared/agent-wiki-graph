@@ -1,5 +1,7 @@
 # agent-wiki-graph
 
+> 📖 **Read the write-up:** [Persistent Agent Memory with an Obsidian Wiki and Claude Code](https://webofmike.com/agent-memory-obsidian-wiki/)
+
 A starter kit for an **Obsidian wiki that agents maintain and read**: persistent memory that
 survives every session, and a schema that tells each agent where a fact goes before it writes it.
 
